@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  timer_type: MyString
+  duration: 1
+
+two:
+  user: two
+  timer_type: MyString
+  duration: 1
