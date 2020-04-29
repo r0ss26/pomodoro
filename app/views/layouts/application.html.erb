@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pomodoro</title>
+    <title>Pomodoro Productivity Timer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <header>
+      <%= render "shared/logged_in"%>
+    </header>
     <%= yield %>
   </body>
 </html>
