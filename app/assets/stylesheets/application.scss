@@ -14,10 +14,21 @@
  *= require_self
  */
 
- $red: #ef476f;
- $blue: #118ab2;
- $yellow: #ffd166;
- $light-green: #06d6a0;
- $dark-green: #073b4c;
- 
- 
+$red: #ef476f;
+$blue: #118ab2;
+$yellow: #ffd166;
+$light-green: #06d6a0;
+$dark-green: #073b4c;
+
+.btn {
+  border-radius: 5px;
+  border: none;
+}
+
+.btn__header {
+  padding: 10px;
+}
+
+.btn:focus {outline: 0;}
+
+.inline {display: inline;}
