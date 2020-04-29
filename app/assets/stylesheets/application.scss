@@ -20,15 +20,36 @@ $yellow: #ffd166;
 $light-green: #06d6a0;
 $dark-green: #073b4c;
 
+body {
+  background-color: $light-green;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
 .btn {
   border-radius: 5px;
   border: none;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn__header {
+  background-color: $yellow;
+  // color: white;
+}
+
+.btn:focus {outline: 0;}
+
 .btn__header {
   padding: 10px;
 }
 
-.btn:focus {outline: 0;}
 
 .inline {display: inline;}
