@@ -40,3 +40,9 @@
   color: white;
   font-size: 4em;
 }
+
+.timer-log {
+  grid-column: 6 / span 3;
+  grid-row: 6;
+  overflow-y: scroll;
+}
