@@ -21,12 +21,15 @@ $light-green: #06d6a0;
 $dark-green: #073b4c;
 
 body {
-  background-color: $light-green;
+  background-image: linear-gradient(to bottom right, #83D0B2, #8DCA93);
   margin: 0;
 }
 
 header {
   grid-column: 1 / 13;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
 }
 
 // CSS Grid
