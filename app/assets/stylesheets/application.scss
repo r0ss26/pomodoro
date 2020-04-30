@@ -22,15 +22,22 @@ $dark-green: #073b4c;
 
 body {
   background-color: $light-green;
+  margin: 0;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row-reverse;
+  grid-column: 1 / 13;
 }
 
+// CSS Grid
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  height: 100vh;
+}
+
+// Button styling
 .btn {
   border-radius: 5px;
   border: none;
@@ -52,15 +59,3 @@ header {
 }
 
 .inline {display: inline;}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  height: 100vh;
-}
-
-.hello {
-  grid-column: 3 / span 3;
-  grid-row: 3;
-}

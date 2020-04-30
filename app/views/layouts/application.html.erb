@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="grid-container">
 
     <header>
       <%= render "shared/logged_in" %>
@@ -18,9 +18,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="grid-container">
-      <%= yield %>
-    </div>
+    <%= yield %>
     
   </body>
 </html>
