@@ -51,5 +51,16 @@ header {
   padding: 10px;
 }
 
-
 .inline {display: inline;}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  height: 100vh;
+}
+
+.hello {
+  grid-column: 3 / span 3;
+  grid-row: 3;
+}
