@@ -46,3 +46,15 @@
   grid-row: 6;
   overflow-y: scroll;
 }
+
+.timer-control {
+  display: flex;
+  justify-content: center;
+  grid-row: 5;
+  grid-column: 1 / 13;
+}
+
+.timer-control > button {
+  padding: 20px;
+  margin: 0 30px 30px 30px;
+}
