@@ -5,6 +5,10 @@ class Timer {
     this.htmlElement = document.getElementById(htmlElement)
   }
 
+  sethtmlElement(element) {
+    this.htmlElement = document.getElementById(element)
+  }
+
   // Takes an HTML element to display the timer in
   displayTimer() {
     // Format and display the timer
@@ -14,6 +18,7 @@ class Timer {
   // Start the count down
   startTimer() {
     this.start = new Date().getTime()
+    this.displayTimer()
 
     // Calculate the elapsed time and update the UI every 1 second
     let countDown = setInterval(() => {
@@ -23,11 +28,9 @@ class Timer {
       elapsed = now - this.start; // milliseconds
 
       // Update the timer on the UI
-      console.log(this.duration);
-      console.log(elapsed);
-      
-      
-      this.htmlElement.innerText = this.formatTime(this.duration - elapsed);
+      if (!(elapsed === 0)) {
+        this.htmlElement.innerText = this.formatTime(this.duration - elapsed);
+      }
 
       // Display the timer in the document title
       document.title = `(${this.formatTime(this.duration - elapsed)}) Pomodoro Timer`;
