@@ -1,5 +1,7 @@
 {
   "name": "pomodoro",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }

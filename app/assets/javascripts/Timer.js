@@ -3,13 +3,13 @@ class Timer {
     this.duration = duration
     this.type = type
     this.htmlElement = document.getElementById(htmlElement)
+    this.elapsed = 0
   }
 
   sethtmlElement(element) {
     this.htmlElement = document.getElementById(element)
   }
 
-  // Takes an HTML element to display the timer in
   displayTimer() {
     // Format and display the timer
    this.htmlElement.innerText = this.formatTime(this.duration);
@@ -17,33 +17,45 @@ class Timer {
 
   // Start the count down
   startTimer() {
+    if (this.countDown) {
+      clearInterval(this.countDown)
+    }
+
     this.start = new Date().getTime()
     this.displayTimer()
 
     // Calculate the elapsed time and update the UI every 1 second
-    let countDown = setInterval(() => {
+    this.countDown = setInterval(() => {
 
-      let now, elapsed;
+      let now;
       now = new Date().getTime();
-      elapsed = now - this.start; // milliseconds
+      this.elapsed = now - this.start; // milliseconds
 
       // Update the timer on the UI
-      if (!(elapsed === 0)) {
-        this.htmlElement.innerText = this.formatTime(this.duration - elapsed);
-      }
+      this.htmlElement.innerText = this.formatTime(this.duration - this.elapsed);
+      setProgress(this.elapsed / this.duration * 100)
+      
 
       // Display the timer in the document title
-      document.title = `(${this.formatTime(this.duration - elapsed)}) Pomodoro Timer`;
+      document.title = `(${this.formatTime(this.duration - this.elapsed)}) Pomodoro Timer`;
 
       // When the countdown reaches zero, end the timer
-      if (this.duration - elapsed <= 0) {
-        clearInterval(countDown)
+      if (this.duration - this.elapsed <= 0) {
+        clearInterval(this.countDown)
         this.endTimer();
+
+        // Update logs
+        Rails.ajax({
+          type: 'post',
+          url: "/",
+          data: `timer_type=${timer.type}&duration=${timer.duration}`
+        })
       }
     }, 1000);
   }
 
   endTimer() {
+    clearInterval(this.countDown)
     this.htmlElement.innerText = '00:00';
     document.title = `(00:00) Pomodoro Timer`;
   }
@@ -58,14 +70,23 @@ class Timer {
     }
 
     // Separate the input into hours and minutes
-    hours = addLeadingZeros(Math.floor(duration / (1000 * 60 * 60)));
-    minutes = addLeadingZeros(Math.floor((duration / (1000 * 60)) % 60));
-    seconds = addLeadingZeros(Math.round((duration / (1000)) % 60));
+    hours = Math.floor(duration / (1000 * 60 * 60))
+    minutes = Math.floor((duration / (1000 * 60)) % 60)
+    seconds = Math.round((duration / (1000)) % 60)
 
-    // format the input
-    hours > 0 ? formattedString =
-      `${hours}:${minutes}:${seconds}` :
-      formattedString = `${minutes}:${seconds}`;
+    // Account for edge case
+    if (seconds === 60) {
+      seconds = 0
+      minutes += 1
+    }
+
+    // Add leading digits
+    hours = addLeadingZeros(hours)
+    minutes = addLeadingZeros(minutes)
+    seconds = addLeadingZeros(seconds)
+
+    // Combine into a formatted string
+    formattedString = hours > 0 ? `${hours}:${minutes}:${seconds}` : `${minutes}:${seconds}`;
 
     return formattedString;
   }

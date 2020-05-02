@@ -20,25 +20,59 @@
   cursor: pointer;
 }
 
-.pomodoro-clock__circle {
+// .progress-ring {
+//   grid-column: 4;
+//   grid-row: 6;
+// }
+
+// .pomodoro-clock__circle {
+//   grid-column: 4;
+//   grid-row: 6;
+//   $height: 300px;
+//   width: $height; 
+//   height: $height; 
+//   line-height: $height; 
+//   text-align: center; 
+//   border-radius: 50%; 
+//   vertical-align: middle; 
+//   display: inline-block; 
+//   // opacity: 0;
+//   border: 5px solid white;
+//   // background-color: blue;
+// }
+
+.timer {
   grid-column: 4;
   grid-row: 6;
-  $height: 300px;
-  width: $height; 
-  height: $height; 
-  line-height: $height; 
-  text-align: center; 
-  border-radius: 50%; 
-  vertical-align: middle; 
-  display: inline-block; 
-  // opacity: 0;
-  border: 5px solid white;
-  // background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer {
+  // position: absolute;
+}
+
+.progress-ring__circle {
+  // stroke-dasharray: 10 20;
+  transition: stroke-dashoffset ease 1s;
+  transition-timing-function: linear;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%,
+}
+
+.timer-value__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 6;
+  grid-column: 4;
 }
 
 .pomodoro-clock__current-value {
   color: white;
   font-size: 4em;
+  z-index: 1;
 }
 
 .timer-log {
