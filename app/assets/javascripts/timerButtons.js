@@ -12,7 +12,7 @@ timer.sethtmlElement(HTMLElements.timerElement)
 
 Object.values(HTMLElements.buttons).forEach((button) => {
   button.addEventListener('click', () => {
-    timer.duration = parseInt(1) * 1000; // button.dataset.time
+    timer.duration = parseInt(button.dataset.time) * 60 * 1000;
     timer.type = button.dataset.type;
     timer.startTimer()
   })

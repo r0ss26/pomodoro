@@ -20,6 +20,13 @@
   cursor: pointer;
 }
 
+.timer-log__table {
+  width: 100%;
+  th {
+    text-align: left;
+  }
+}
+
 // .progress-ring {
 //   grid-column: 4;
 //   grid-row: 6;
