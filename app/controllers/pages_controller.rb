@@ -1,14 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @logs = current_user.timer_logs.order(:created_at)
-    @ordered_logs = {}
-    for log in @logs
-      if @ordered_logs.has_key?(log.created_at)
-        @ordered_logs[log.created_at].push(log)
-      else
-        @ordered_logs[log.created_at] = [log]
-      end
+    if user_signed_in?
+      @logs = current_user.timer_logs.all #.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+      p @logs
     end
-    p "ORDERED LOGS: #{@ordered_logs}"
   end
 end

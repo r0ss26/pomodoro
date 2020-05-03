@@ -26,11 +26,29 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.hmenu {
+  list-style: none;
+  li {
+    display: inline;
+  }
+  a {
+    color: inherit;
+    
+  }
+}
+
 header {
   grid-column: 1 / 13;
   display: flex;
   justify-content: space-between;
   padding: 15px;
+  display: flex;
+  flex-flow: row-reverse;
+  a {
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid black;
+  }
 }
 
 // CSS Grid

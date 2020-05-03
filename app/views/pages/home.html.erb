@@ -23,27 +23,18 @@
         <th>Duration</th>
         <th>Finish Time</th>
       </tr>
-    </thead>
-  <% @ordered_logs.each do |date, single_log| %>
-    <tbody>
-      <tr>
-        <td><%= Time.parse(date.localtime.to_s).strftime("%a %b %e") %></td>
-      </tr>
-      <% single_log.each do |log| %>
+      <tbody>
+        <% if @logs %>
+        <% for log in @logs %>
         <tr>
-          <td>
-            <%= log.timer_type %>
-          </td>
-          <td>
-            <%= log.duration %>
-          </td>
-          <td>
-            <%= Time.parse(log.created_at.localtime.to_s).strftime("%r") %>
-          </td>
+          <td><%= log.timer_type %></td>
+          <td><%= log.duration %></td>
+          <td><%= log.created_at %></td>
         </tr>
-      <% end %>
-    </tbody>
-    <% end %>
+        <% end %>
+        <% end %>
+      </tbody>
+    </thead>
   </table>
 </div>
 
