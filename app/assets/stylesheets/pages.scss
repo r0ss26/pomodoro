@@ -21,7 +21,14 @@
 }
 
 .timer-log__table {
+  border: 2px solid black;
   width: 100%;
+  border-collapse: collapse;
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  // tr:nth-child(odd) {background-color: #f2f2f2;}
+  tr:nth-child(even) {background-color: #17f8be;}
   th {
     text-align: left;
   }

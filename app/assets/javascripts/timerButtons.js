@@ -7,8 +7,12 @@ HTMLElements = {
   timerElement: "timer"
 }
 
-timer = new Timer()
-timer.sethtmlElement(HTMLElements.timerElement)
+let timer;
+
+if (!timer) {
+  timer = new Timer()
+  timer.sethtmlElement(HTMLElements.timerElement)
+}
 
 Object.values(HTMLElements.buttons).forEach((button) => {
   button.addEventListener('click', () => {
