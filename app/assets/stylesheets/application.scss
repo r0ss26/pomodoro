@@ -20,10 +20,16 @@ $yellow: #ffd166;
 $light-green: #06d6a0;
 $dark-green: #073b4c;
 
+
+
 body {
   background-image: linear-gradient(to bottom right, #83D0B2, #8DCA93);
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Jost', sans-serif;
+}
+
+#timer {
+  font-weight: bold;
 }
 
 .hmenu {
@@ -81,3 +87,15 @@ header {
 }
 
 .inline {display: inline;}
+
+.timer-control {
+  button {
+    background-color: $yellow;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-weight: bold;
+}
+

@@ -1,7 +1,7 @@
 <div class="timer-control">
-  <button id="btn__pomodoro" class="btn" data-time="25" data-type="Pomodoro">Pomodoro</button>
-  <button id="btn__short-break" class="btn" data-time="1" data-type="Short Break">Short Break</button>
-  <button id="btn__long-break" class="btn" data-time="15" data-type="Long Break">Long Break</button>
+  <button id="btn__pomodoro" class="btn" data-time="25" data-type="Pomodoro">POMODORO</button>
+  <button id="btn__short-break" class="btn" data-time="1" data-type="Short Break">SHORT BREAK</button>
+  <button id="btn__long-break" class="btn" data-time="15" data-type="Long Break">LONG BREAK</button>
 </div>
 
 <div class="timer">
@@ -19,24 +19,30 @@
   <table class="timer-log__table">
     <thead>
       <tr>
-        <th>Timer Type</th>
+        <th>Type</th>
         <th>Duration</th>
-        <th>Finish Time</th>
+        <th>Time</th>
       </tr>
       <tbody>
         <% if @logs %>
-        <% for log in @logs %>
-        <tr>
-          <td><%= log.timer_type %></td>
-          <td><%= log.duration %></td>
-          <td><%= log.created_at %></td>
-        </tr>
-        <% end %>
+          <% for log in @logs %>
+          <tr>
+            <td><%= log.timer_type %></td>
+            <td><%= log.duration %></td>
+            <td><%= log.created_at %></td>
+          </tr>
+          <% end %>
         <% end %>
       </tbody>
     </thead>
   </table>
 </div>
+<button id="btn--history">History</button>
+
+  <div class="daily-goal">
+    <label for="goal" class="goal-text">Set a daily Pomodoro goal:</label>
+    <input type="number" name="goal" id="goal">
+  </div>
 
 <%= javascript_include_tag "Timer" %>
 <%= javascript_include_tag "timerButtons" %>
