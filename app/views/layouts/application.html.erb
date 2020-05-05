@@ -11,19 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;1,400;1,600&display=swap" rel="stylesheet">
   </head>
 
-  <body class="grid-container">
-
-    <header>
-      <ul class="hmenu">
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-      </ul>
-    </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+  <body>
     <%= yield %>
-    
   </body>
+  
+  </div>
 </html>

@@ -1,50 +1,57 @@
-<div class="timer-control">
-  <button id="btn__pomodoro" class="btn" data-time="25" data-type="Pomodoro">POMODORO</button>
-  <button id="btn__short-break" class="btn" data-time="1" data-type="Short Break">SHORT BREAK</button>
-  <button id="btn__long-break" class="btn" data-time="15" data-type="Long Break">LONG BREAK</button>
-</div>
+<div class="top">
 
-<div class="timer">
-  <svg class=progress-ring height="300px" width="300px">
-    <circle class="progress-ring__circle--background" stroke="white" stroke-width="8" fill="transparent" r="142" cx="150" cy="150" />
-    <circle class="progress-ring__circle" stroke="red" stroke-width="4" fill="transparent" r="142" cx="150" cy="150" />
-  </svg>
-</div>
+  <%= render 'shared/header' %>
+  <%= render 'devise/shared/messages' %>
 
-<div class="timer-value__container">
-  <div id="timer" class="pomodoro-clock__current-value">25:00</div>
-</div>
-
-<div class="timer-log">
-  <table class="timer-log__table">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Duration</th>
-        <th>Time</th>
-      </tr>
-      <tbody>
-        <% if @logs %>
-          <% for log in @logs %>
-          <tr>
-            <td><%= log.timer_type %></td>
-            <td><%= log.duration %></td>
-            <td><%= log.created_at %></td>
-          </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </thead>
-  </table>
-</div>
-<button id="btn--history">History</button>
+  <div class="timer-control">
+    <button id="btn__pomodoro" class="btn" data-time="25" data-type="Pomodoro">POMODORO</button>
+    <button id="btn__short-break" class="btn" data-time="1" data-type="Short Break">SHORT BREAK</button>
+    <button id="btn__long-break" class="btn" data-time="15" data-type="Long Break">LONG BREAK</button>
+  </div>
 
   <div class="daily-goal">
     <label for="goal" class="goal-text">Set a daily Pomodoro goal:</label>
-    <input type="number" name="goal" id="goal">
+    <input type="number" name="goal" id="goal" placeholder="5">
   </div>
 
-<%= javascript_include_tag "Timer" %>
-<%= javascript_include_tag "timerButtons" %>
-<%= javascript_include_tag "progressRing" %>
+  <div class="timer">
+    <svg class=progress-ring height="300px" width="300px">
+      <circle class="progress-ring__circle--background" stroke="white" stroke-width="8" fill="transparent" r="142" cx="150" cy="150" />
+      <circle class="progress-ring__circle" stroke="#D67F5E" stroke-width="4" fill="transparent" r="142" cx="150" cy="150" />
+    </svg>
+    <div class="timer-value__container">
+      <div id="timer" class="pomodoro-clock__current-value">25:00</div>
+    </div>
+  </div>
 
+  <div class="timer-log">
+    <table class="timer-log__table table--scrollbar">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Duration</th>
+          <th>Time</th>
+        </tr>
+        <tbody>
+          <% if @logs %>
+            <% for log in @logs %>
+            <tr>
+              <td><%= log.timer_type %></td>
+              <td><%= log.duration %></td>
+              <td><%= log.created_at %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </thead>
+    </table>
+  </div>
+
+  <button id="btn--history">History</button>
+
+  <%= javascript_include_tag "Timer" %>
+  <%= javascript_include_tag "timerButtons" %>
+  <%= javascript_include_tag "progressRing" %>
+</div>
+
+<div class="bottom"></div>
